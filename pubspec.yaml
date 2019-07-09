@@ -1,5 +1,5 @@
 name: flutter_common
-description: Flutter Common Utils.
+description: Flutter Common package.
 version: 0.0.3
 author: patrick<xcpxcp198608@gmail.com>
 homepage: https://github.com/wiatec
@@ -27,7 +27,6 @@ dependencies:
   simple_permissions: ^0.1.9
 
   cached_network_image: ^1.0.0
-  image_picker: ^0.6.0+13
 
 
 dev_dependencies:
