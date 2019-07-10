@@ -2,7 +2,6 @@ class CommonFile{
 
   static const sizeUnits = ["GB", "MB", "KB", "B"];
 
-
   /// format size to str
   /// eg 1MB
   static String strSize(int size) {
