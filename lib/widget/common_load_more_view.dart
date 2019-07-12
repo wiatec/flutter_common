@@ -7,14 +7,18 @@ class CommonLoadMoreView extends StatelessWidget {
 
   final IconData icon;
   final Color iconColor;
-  final String text;
+  final String waitingText;
+  final String loadingText;
+  final String noDataText;
   final Color textColor;
   final CommonLoadMoreState state;
 
   CommonLoadMoreView({
     this.icon = Icons.arrow_upward,
     this.iconColor = Colors.black38,
-    this.text = 'pull up to loading more',
+    this.waitingText = 'pull up to loading more',
+    this.loadingText = 'loading more ...',
+    this.noDataText = 'no more data',
     this.textColor = Colors.black38,
     this.state = CommonLoadMoreState.waiting
   });
@@ -40,7 +44,7 @@ class CommonLoadMoreView extends StatelessWidget {
               ): SizedBox(),
               SizedBox(height: 8.0,),
               Text(
-                state == CommonLoadMoreState.waiting? text: state == CommonLoadMoreState.loading? 'loading more ...': 'no more data',
+                state == CommonLoadMoreState.waiting? waitingText: state == CommonLoadMoreState.loading? loadingText: noDataText,
                 style: TextStyle(
                     fontSize: 16.0,
                     color: textColor
