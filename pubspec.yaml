@@ -1,6 +1,6 @@
 name: flutter_common
 description: Flutter Common package.
-version: 0.1.6
+version: 0.1.7
 author: patrick<xcpxcp198608@gmail.com>
 homepage: https://github.com/wiatec
 repository: https://github.com/wiatec/flutter_common
@@ -42,3 +42,6 @@ dev_dependencies:
 flutter:
   uses-material-design: true
 
+
+# sudo flutter packages pub publish --dry-run
+# sudo flutter packages pub publish

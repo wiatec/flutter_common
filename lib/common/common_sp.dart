@@ -18,7 +18,7 @@ class CommonSp {
     return prefs.getString(key) ?? defaultValue;
   }
 
-  static Future<bool> setString(String key, String value) async {
+  static Future<bool> putString(String key, String value) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.setString(key, value);
   }
@@ -28,7 +28,7 @@ class CommonSp {
     return prefs.getBool(key) ?? defaultValue;
   }
 
-  static Future<bool> setBool(String key, bool value) async {
+  static Future<bool> putBool(String key, bool value) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.setBool(key, value);
   }
@@ -38,7 +38,7 @@ class CommonSp {
     return prefs.getDouble(key) ?? defaultValue;
   }
 
-  static Future<bool> setDouble(String key, double value) async {
+  static Future<bool> putDouble(String key, double value) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.setDouble(key, value);
   }
@@ -48,7 +48,7 @@ class CommonSp {
     return prefs.getStringList(key);
   }
 
-  static Future<bool> setStringList(String key, List<String> value) async {
+  static Future<bool> putStringList(String key, List<String> value) async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.setStringList(key, value);
   }

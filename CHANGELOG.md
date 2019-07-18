@@ -62,3 +62,7 @@
 ## [0.1.6] - 2019.07.12
 
 * update common list filter.
+
+## [0.1.7] - 2019.07.12
+
+* update common sp, setXXX change to putXXX.
