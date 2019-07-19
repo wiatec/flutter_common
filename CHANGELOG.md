@@ -70,3 +70,7 @@
 ## [0.1.8] - 2019.07.12
 
 * add common log
+
+## [0.1.9] - 2019.07.12
+
+* update common log
