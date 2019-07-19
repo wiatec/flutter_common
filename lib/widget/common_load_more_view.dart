@@ -38,10 +38,10 @@ class CommonLoadMoreView extends StatelessWidget {
               state == CommonLoadMoreState.waiting? Icon(
                 icon,
                 color: iconColor
-              ): state == CommonLoadMoreState.loading?? CircularProgressIndicator(
+              ): state == CommonLoadMoreState.loading? CircularProgressIndicator(
                   strokeWidth: 3.0,
                   valueColor: AlwaysStoppedAnimation(iconColor)
-              ),
+              ): SizedBox(),
               SizedBox(height: 8.0,),
               Text(
                 state == CommonLoadMoreState.waiting? waitingText: state == CommonLoadMoreState.loading? loadingText: noDataText,
