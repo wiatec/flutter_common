@@ -32,7 +32,6 @@ class CommonListMenuInfo extends Object{
     return 'ListMenuInfo{label: $label, labelColor: $labelColor, subTitle: $subTitle, subTitleColor: $subTitleColor, iconRes: $iconRes, icon: $icon, rightArrowColor: $rightArrowColor, showRightArrow: $showRightArrow, action: $action}';
   }
 
-
 }
 
 
@@ -93,14 +92,14 @@ class CommonListMenu extends StatelessWidget {
                           fontWeight: FontWeight.w500,
                         ),
                       ),
-                      listMenuInfo.subTitle != null && listMenuInfo.subTitle.length > 0 ?
-                      Text(
-                        listMenuInfo.subTitle,
-                        style: TextStyle(
-                          fontSize: 10.0,
-                          color: listMenuInfo.subTitleColor,
+                      listMenuInfo.subTitle != null && listMenuInfo.subTitle.length > 0 ??
+                        Text(
+                          listMenuInfo.subTitle,
+                          style: TextStyle(
+                            fontSize: 10.0,
+                            color: listMenuInfo.subTitleColor,
+                          ),
                         ),
-                      ): SizedBox(),
                     ],
                   )
               ),
@@ -122,16 +121,14 @@ class CommonListMenu extends StatelessWidget {
       children: <Widget>[
         listMenuInfo.icon != null ?
         listMenuInfo.icon:
-        listMenuInfo.iconRes != null && listMenuInfo.iconRes.length >0 ?
+        listMenuInfo.iconRes != null && listMenuInfo.iconRes.length >0 ??
             Image.asset(
               listMenuInfo.iconRes,
               width: 30.0,
               height: 30.0,
-            ):
-            SizedBox(),
-        listMenuInfo.icon != null || (listMenuInfo.iconRes != null && listMenuInfo.iconRes.length >0) ?
-          SizedBox(width: 8.0,):
-          SizedBox(),
+            ),
+        listMenuInfo.icon != null || (listMenuInfo.iconRes != null && listMenuInfo.iconRes.length >0) ??
+          SizedBox(width: 8.0,),
       ],
     );
   }

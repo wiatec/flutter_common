@@ -19,12 +19,12 @@ class CommonDialog{
             ),
           ),
           actions: <Widget>[
-            showCancel? FlatButton(
+            showCancel?? FlatButton(
                 child: Text(cancelLabel, style: TextStyle(color: Colors.grey),),
                 onPressed: () {
                   Navigator.pop(context);
                 }
-            ): SizedBox(),
+            ),
             FlatButton(
                 child: Text(conformLabel, style: TextStyle(color: Colors.blueAccent),),
                 onPressed: () {
