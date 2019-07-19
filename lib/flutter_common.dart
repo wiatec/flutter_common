@@ -8,6 +8,7 @@ export 'common/common_device.dart';
 export 'common/common_file.dart';
 export 'common/common_http.dart';
 export 'common/common_launch.dart';
+export 'common/common_log.dart';
 export 'common/common_sp.dart';
 export 'common/common_system.dart';
 export 'common/common_time.dart';

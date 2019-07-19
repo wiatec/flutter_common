@@ -66,3 +66,7 @@
 ## [0.1.7] - 2019.07.12
 
 * update common sp, setXXX change to putXXX.
+
+## [0.1.8] - 2019.07.12
+
+* add common log

@@ -12,4 +12,8 @@ void main() {
     expect(CommonColor.fromStr(''), Colors.white);
   });
 
+  test("common log", (){
+    log('fsfs');
+  });
+
 }
