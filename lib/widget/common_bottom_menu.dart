@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 class CommonBottomMenu {
 
-  static void show(BuildContext context, List<CommonBottomMenuItem> itemList){
+  static void show(BuildContext context, {@required List<CommonBottomMenuItem> itemList, bool showCancel = true}){
     showModalBottomSheet<void>(context: context, builder: (BuildContext context) {
-      return BottomMenu(itemList);
+      return BottomMenu(itemList, showCancel: showCancel,);
     });
   }
 
@@ -38,8 +38,9 @@ class BottomMenu extends StatelessWidget {
   final double paddingItemVer = 12.0;
   final double paddingItemHor = 8.0;
   final List<CommonBottomMenuItem> itemList;
+  final bool showCancel;
 
-  BottomMenu(this.itemList);
+  BottomMenu(this.itemList, {this.showCancel = true});
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +49,7 @@ class BottomMenu extends StatelessWidget {
     });
     return Container(
       width: double.infinity,
-      height: itemHeight * (itemList.length + 1) + paddingBorder * 3 + marginLine * 2,
+      height: itemHeight * (showCancel? itemList.length + 1: itemList.length) + paddingBorder * 3 + (showCancel? marginLine * 2: 0),
       padding: EdgeInsets.only(
         top: paddingBorder,
         bottom: paddingBorder,
@@ -60,22 +61,24 @@ class BottomMenu extends StatelessWidget {
 
   Widget buildItemList(List<CommonBottomMenuItem> itemList){
     return ListView.builder(
-      itemCount: itemList.length + 2,
+      itemCount: showCancel? itemList.length + 2: itemList.length,
       itemBuilder: (BuildContext context, int index) {
-        if(index == itemList.length + 2 - 1){
-          return buildListItem(context,
-            CommonBottomMenuItem(
-              icon: Icons.clear,
-              label: 'Cancel',
-            ),
-          );
-        }
-        if(index == itemList.length + 2 - 2){
-          return Container(
-            color: Colors.black26,
-            height: 0.5,
-            margin: EdgeInsets.only(bottom: marginLine, top: marginLine),
-          );
+        if(showCancel) {
+          if (index == itemList.length + 2 - 1) {
+            return buildListItem(context,
+              CommonBottomMenuItem(
+                icon: Icons.clear,
+                label: 'Cancel',
+              ),
+            );
+          }
+          if (index == itemList.length + 2 - 2) {
+            return Container(
+              color: Colors.black26,
+              height: 0.5,
+              margin: EdgeInsets.only(bottom: marginLine, top: marginLine),
+            );
+          }
         }
         return buildListItem(context, itemList[index]);
       },
