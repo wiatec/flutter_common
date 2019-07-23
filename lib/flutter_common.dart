@@ -2,6 +2,7 @@ library flutter_common;
 
 export 'common/common_app.dart';
 export 'common/common_aspect_ratio.dart';
+export 'common/common_biometrics.dart';
 export 'common/common_color.dart';
 export 'common/common_crypto.dart';
 export 'common/common_device.dart';

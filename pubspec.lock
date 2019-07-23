@@ -317,6 +317,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "0.3.19"
+  local_auth:
+    dependency: "direct main"
+    description:
+      name: local_auth
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.5.2+4"
   logging:
     dependency: transitive
     description:
@@ -429,6 +436,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "2.0.3"
+  rxdart:
+    dependency: "direct main"
+    description:
+      name: rxdart
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.22.0"
   screen:
     dependency: "direct main"
     description:

@@ -74,3 +74,11 @@
 ## [0.1.9] - 2019.07.12
 
 * update common log
+
+## [0.2.0] - 2019.07.12
+
+* add common nav
+
+## [0.2.2] - 2019.07.12
+
+* update common biometrics
