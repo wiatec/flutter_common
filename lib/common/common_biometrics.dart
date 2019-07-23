@@ -5,7 +5,6 @@ class CommonBiometrics{
 
   final LocalAuthentication auth = LocalAuthentication();
 
-
   Future<List<BiometricType>> getAvailableBiometrics() async {
     List<BiometricType> availableBiometrics = [];
     try {
@@ -20,14 +19,27 @@ class CommonBiometrics{
   }
 
 
-  void authenticate({Function onAuthSuccess, Function onAuthError, Function onError}) async{
+  void authenticate({
+    Function onAuthSuccess,
+    Function onAuthError,
+    Function onError,
+    String faceAuthText,
+    String fingerprintAuthText}
+    ) async{
     List<BiometricType> availableBiometrics = await getAvailableBiometrics();
-    authenticateBy(availableBiometrics, onAuthSuccess: onAuthSuccess, onAuthError: onAuthError, onError: onError);
+    authenticateBy(availableBiometrics, onAuthSuccess: onAuthSuccess,
+        onAuthError: onAuthError, onError: onError,
+        faceAuthText: faceAuthText, fingerprintAuthText: fingerprintAuthText);
   }
 
 
-  void authenticateBy(List<BiometricType> availableBiometrics,
-      {Function onAuthSuccess, Function onAuthError, Function onError}) async{
+  void authenticateBy(List<BiometricType> availableBiometrics, {
+    Function onAuthSuccess,
+    Function onAuthError,
+    Function onError,
+    String faceAuthText = 'Scan your face to authenticate',
+    String fingerprintAuthText = 'Scan your fingerprint to authenticate'
+  }) async{
     try {
       if(availableBiometrics == null || availableBiometrics.length <= 0){
         log("no found biometrics");
@@ -48,8 +60,8 @@ class CommonBiometrics{
         return;
       }
       bool authenticated = await auth.authenticateWithBiometrics(
-            localizedReason: type == BiometricType.face? 'Scan your face to authenticate':
-              type == BiometricType.fingerprint? 'Scan your fingerprint to authenticate': '',
+            localizedReason: type == BiometricType.face? faceAuthText:
+              type == BiometricType.fingerprint? fingerprintAuthText: '',
             useErrorDialogs: true,
             stickyAuth: true);
       if(authenticated){
