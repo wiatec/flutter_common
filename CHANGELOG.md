@@ -82,3 +82,11 @@
 ## [0.2.2] - 2019.07.12
 
 * update common biometrics
+
+## [0.2.3] - 2019.07.31
+
+* update common time
+
+## [0.2.4] - 2019.08.05
+
+* update common time

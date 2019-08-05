@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
+
 class CommonTime{
 
   static const String dateTimeFormat = "yyyy-MM-dd HH:mm:ss";
@@ -92,6 +93,31 @@ class CommonTime{
       if (v < 0) v = -v;
       return v ~/ 86400000;
     }
+  }
+
+  /// get the start and end unix time of the day
+  static TimeStampOfDay getStartAndEndTimeOfDay(DateTime dateTime){
+    int year = dateTime.year;
+    int month = dateTime.month;
+    int day = dateTime.day;
+    int startTime = DateTime(year, month, day, 0, 0, 0, 0, 0).millisecondsSinceEpoch ~/ 1000;
+    int endTime = DateTime(year, month, day, 23, 59, 59, 0, 0).millisecondsSinceEpoch ~/ 1000;
+    return TimeStampOfDay(startTime, endTime);
+  }
+
+
+}
+
+class TimeStampOfDay{
+
+  int start;
+  int end;
+
+  TimeStampOfDay(this.start, this.end);
+
+  @override
+  String toString() {
+    return 'TimeOfDay{start: $start, end: $end}';
   }
 
 
