@@ -90,3 +90,11 @@
 ## [0.2.4] - 2019.08.05
 
 * update common time
+
+## [0.2.5] - 2019.08.08
+
+* update common list menu
+
+## [0.2.6] - 2019.08.23
+
+* update common list menu

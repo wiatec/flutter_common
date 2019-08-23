@@ -15,14 +15,20 @@ class CommonBottomMenuItem {
 
   int position;
   IconData icon;
+  Color iconColor;
   String label;
+  Color labelColor;
+  double labelSize;
   bool closeMenuAfterTap;
   Function onItemClick;
 
   CommonBottomMenuItem({
     this.position = 0,
     @required this.icon,
+    this.iconColor = Colors.black87,
     @required this.label,
+    this.labelColor = Colors.black87,
+    this.labelSize = 15.0,
     this.onItemClick,
     this.closeMenuAfterTap = true
   });
@@ -109,14 +115,14 @@ class BottomMenu extends StatelessWidget {
           children: <Widget>[
             Icon(
               item.icon,
-              color: Colors.black87,
+              color: item.iconColor,
             ),
             SizedBox(width: 16.0,),
             Text(
               item.label,
               style: TextStyle(
-                fontSize: 15.0,
-                color: Colors.black87,
+                fontSize: item.labelSize,
+                color: item.labelColor,
               ),
             ),
           ],

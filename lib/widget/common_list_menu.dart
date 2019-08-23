@@ -2,11 +2,18 @@ import 'package:flutter/material.dart';
 
 class CommonListMenuInfo extends Object{
 
+  Color backgroundColor;
   String label;
   Color labelColor;
+  double labelSize;
+  FontWeight labelFontWeight;
   String subTitle;
   Color subTitleColor;
+  double subTitleSize;
   String iconRes;
+  String rightLabel;
+  Color rightLabelColor;
+  double rightLabelSize;
   Icon icon;
   Color rightArrowColor;
   bool showRightArrow;
@@ -15,12 +22,19 @@ class CommonListMenuInfo extends Object{
 
 
   CommonListMenuInfo({
+    this.backgroundColor = Colors.transparent,
     this.label,
     this.labelColor = Colors.black87,
+    this.labelSize = 14.0,
+    this.labelFontWeight = FontWeight.w500,
     this.subTitle,
     this.subTitleColor = Colors.black38,
+    this.subTitleSize = 10.0,
     this.iconRes,
     this.icon,
+    this.rightLabel = "",
+    this.rightLabelColor = Colors.black54,
+    this.rightLabelSize = 12.0,
     this.rightArrowColor = Colors.grey,
     this.showRightArrow = true,
     this.action = 0,
@@ -59,13 +73,13 @@ class CommonListMenu extends StatelessWidget {
     );
   }
 
-  Widget buildItem(CommonListMenuInfo listMenuInfo){
+  Widget buildItem(CommonListMenuInfo info){
     return Material(
-      color: Colors.transparent,
+      color: info.backgroundColor,
       child: InkWell(
         onTap: (){
-          if (listMenuInfo.onItemTap != null){
-            listMenuInfo.onItemTap();
+          if (info.onItemTap != null){
+            info.onItemTap();
           }
         },
         highlightColor: highlightColor,
@@ -78,35 +92,43 @@ class CommonListMenu extends StatelessWidget {
           child:Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              buildIcon(listMenuInfo),
+              buildIcon(info),
               Expanded(
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       Text(
-                        listMenuInfo.label != null && listMenuInfo.label.length > 0? listMenuInfo.label: '',
+                        info.label != null && info.label.length > 0? info.label: '',
                         style: TextStyle(
-                          fontSize: 14.0,
-                          color: listMenuInfo.labelColor,
-                          fontWeight: FontWeight.w500,
+                          fontSize: info.labelSize,
+                          color: info.labelColor,
+                          fontWeight: info.labelFontWeight,
                         ),
                       ),
-                      listMenuInfo.subTitle != null && listMenuInfo.subTitle.length > 0 ?
+                      info.subTitle != null && info.subTitle.length > 0 ?
                         Text(
-                          listMenuInfo.subTitle,
+                          info.subTitle,
                           style: TextStyle(
-                            fontSize: 10.0,
-                            color: listMenuInfo.subTitleColor,
+                            fontSize: info.subTitleSize,
+                            color: info.subTitleColor,
                           ),
                         ): SizedBox(),
                     ],
                   )
               ),
-              listMenuInfo.showRightArrow?
+              Text(
+                info.rightLabel,
+                style: TextStyle(
+                  fontSize: info.rightLabelSize,
+                  color: info.rightLabelColor,
+                ),
+              ),
+              SizedBox(width: 3.0,),
+              info.showRightArrow?
               Icon(
                 Icons.keyboard_arrow_right,
-                color: listMenuInfo.rightArrowColor,
+                color: info.rightArrowColor,
               ):
               SizedBox(),
             ],
