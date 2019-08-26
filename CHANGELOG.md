@@ -98,3 +98,11 @@
 ## [0.2.6] - 2019.08.23
 
 * update common list menu
+
+## [0.2.7] - 2019.08.26
+
+* update common list menu
+
+## [0.2.8] - 2019.08.26
+
+* update common log

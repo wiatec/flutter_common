@@ -11,6 +11,7 @@ class CommonListMenuInfo extends Object{
   Color subTitleColor;
   double subTitleSize;
   String iconRes;
+  Widget rightWidget;
   String rightLabel;
   Color rightLabelColor;
   double rightLabelSize;
@@ -32,6 +33,7 @@ class CommonListMenuInfo extends Object{
     this.subTitleSize = 10.0,
     this.iconRes,
     this.icon,
+    this.rightWidget,
     this.rightLabel = "",
     this.rightLabelColor = Colors.black54,
     this.rightLabelSize = 12.0,
@@ -91,51 +93,60 @@ class CommonListMenu extends StatelessWidget {
           padding: EdgeInsets.only(left: 8.0, right: 8.0, bottom: 10.0, top: 15.0),
           child:Row(
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              buildIcon(info),
-              Expanded(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: <Widget>[
-                      Text(
-                        info.label != null && info.label.length > 0? info.label: '',
-                        style: TextStyle(
-                          fontSize: info.labelSize,
-                          color: info.labelColor,
-                          fontWeight: info.labelFontWeight,
-                        ),
-                      ),
-                      info.subTitle != null && info.subTitle.length > 0 ?
-                        Text(
-                          info.subTitle,
-                          style: TextStyle(
-                            fontSize: info.subTitleSize,
-                            color: info.subTitleColor,
-                          ),
-                        ): SizedBox(),
-                    ],
-                  )
-              ),
-              Text(
-                info.rightLabel,
-                style: TextStyle(
-                  fontSize: info.rightLabelSize,
-                  color: info.rightLabelColor,
-                ),
-              ),
-              SizedBox(width: 3.0,),
-              info.showRightArrow?
-              Icon(
-                Icons.keyboard_arrow_right,
-                color: info.rightArrowColor,
-              ):
-              SizedBox(),
-            ],
+            children: buildWidgetList(info),
           ),
         ),
       ),
     );
+  }
+
+  List<Widget> buildWidgetList(CommonListMenuInfo info){
+    List<Widget> list = [];
+    list.add(buildIcon(info));
+    list.add(Expanded(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              info.label != null && info.label.length > 0? info.label: '',
+              style: TextStyle(
+                fontSize: info.labelSize,
+                color: info.labelColor,
+                fontWeight: info.labelFontWeight,
+              ),
+            ),
+            info.subTitle != null && info.subTitle.length > 0 ?
+            Text(
+              info.subTitle,
+              style: TextStyle(
+                fontSize: info.subTitleSize,
+                color: info.subTitleColor,
+              ),
+            ): SizedBox(),
+          ],
+        )
+    ));
+    if(info.rightWidget != null){
+      list.add(info.rightWidget);
+    }else{
+      list.add(Text(
+        info.rightLabel,
+        style: TextStyle(
+          fontSize: info.rightLabelSize,
+          color: info.rightLabelColor,
+        ),
+      ),);
+      list.add(SizedBox(width: 3.0,),);
+      if(info.showRightArrow){
+        list.add(Icon(
+          Icons.keyboard_arrow_right,
+          color: info.rightArrowColor,
+        ));
+      }
+
+    }
+    return list;
   }
 
   Widget buildIcon(CommonListMenuInfo listMenuInfo){

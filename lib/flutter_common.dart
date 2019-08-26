@@ -31,3 +31,4 @@ export 'common_constant.dart';
 export 'package:provide/provide.dart';
 export 'package:dio/dio.dart';
 export 'package:rxdart/rxdart.dart';
+export 'package:logger/logger.dart';
