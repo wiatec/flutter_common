@@ -155,7 +155,11 @@ class CommonListMenu extends StatelessWidget {
         listMenuInfo.icon != null ?
         listMenuInfo.icon:
         listMenuInfo.iconRes != null && listMenuInfo.iconRes.length >0 ?
-            Image.asset(
+        listMenuInfo.iconRes.startsWith("http")? Image.network(
+          listMenuInfo.iconRes,
+          width: 30.0,
+          height: 30.0,
+        ): Image.asset(
               listMenuInfo.iconRes,
               width: 30.0,
               height: 30.0,
