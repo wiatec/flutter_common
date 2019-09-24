@@ -27,6 +27,7 @@ export 'widget/common_loading_view.dart';
 export 'widget/common_network_image_view.dart';
 export 'widget/common_slide_view.dart';
 export 'widget/common_web_view.dart';
+export 'widget/common_navigator_bar.dart';
 export 'common_constant.dart';
 export 'package:provide/provide.dart';
 export 'package:dio/dio.dart';

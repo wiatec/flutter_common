@@ -16,28 +16,37 @@ class CommonSlideView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Slidable(
-      actionPane: SlidableDrawerActionPane(),
-      actionExtentRatio: 0.25,
-      child: child,
-      secondaryActions: <Widget>[
-        onEdit != null? IconSlideAction(
+    List<IconSlideAction> actions = [];
+    if(onEdit != null){
+      actions.add(
+        IconSlideAction(
             caption: 'Edit',
             color: Colors.blue,
             icon: Icons.edit,
             onTap: () {
               onEdit();
             }
-        ): SizedBox(),
-        onDelete != null? IconSlideAction(
-            caption: 'Delete',
-            color: Colors.red,
-            icon: Icons.delete,
-            onTap: () {
-              if(onDelete != null) onDelete();
-            }
-        ): SizedBox(),
-      ],
+        )
+      );
+    }
+    if(onDelete != null){
+      actions.add(
+          IconSlideAction(
+              caption: 'Delete',
+              color: Colors.red,
+              icon: Icons.delete,
+              onTap: () {
+                if(onDelete != null) onDelete();
+              }
+          )
+      );
+    }
+
+    return Slidable(
+      actionPane: SlidableDrawerActionPane(),
+      actionExtentRatio: 0.25,
+      child: child,
+      secondaryActions: actions,
     );
   }
 

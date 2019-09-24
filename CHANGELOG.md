@@ -110,3 +110,11 @@
 ## [0.2.9] - 2019.08.29
 
 * update common list menu
+
+## [0.3.0] - 2019.08.29
+
+* update common slide view
+
+## [0.3.1] - 2019.09.24
+
+* add CommonNavigatorBar
