@@ -130,7 +130,7 @@ class CommonHttp {
 
   Future<Result> formPost(String url, {Map<String, dynamic> formParams}) async {
     try {
-      FormData formData = new FormData.fromMap(formParams);
+      FormData formData = new FormData.from(formParams);
       Response response = await dio.post(url, data: formData);
       Result result = Result();
       result.code = response.data['code'];
@@ -170,7 +170,7 @@ class CommonHttp {
 
   Future<Result> formPut(String url, {Map<String, dynamic> formParams}) async {
     try {
-      FormData formData = new FormData.fromMap(formParams);
+      FormData formData = new FormData.from(formParams);
       Response response = await dio.put(url, data: formData);
       Result result = Result();
       result.code = response.data['code'];
@@ -208,7 +208,7 @@ class CommonHttp {
 
   Future<Result> formDelete(String url, {Map<String, dynamic> formParams}) async {
     try {
-      FormData formData = new FormData.fromMap(formParams);
+      FormData formData = new FormData.from(formParams);
       Response response = await dio.delete(url, data: formData);
       Result result = Result();
       result.code = response.data['code'];
@@ -227,7 +227,7 @@ class CommonHttp {
 
   Future<Result> formUpload(String url, {Map<String, dynamic> formParams, Function onProgress}) async {
     try {
-      FormData formData = new FormData.fromMap(formParams);
+      FormData formData = new FormData.from(formParams);
       Response response = await dio.post(url, data: formData, onSendProgress: onProgress);
       Result result = Result();
       result.code = response.data['code'];

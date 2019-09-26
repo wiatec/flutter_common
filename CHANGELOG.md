@@ -122,3 +122,7 @@
 ## [0.3.2] - 2019.09.24
 
 * update dependencies
+
+## [0.3.3] - 2019.09.26
+
+* update dependencies
