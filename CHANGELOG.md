@@ -126,3 +126,11 @@
 ## [0.3.3] - 2019.09.26
 
 * update dependencies
+
+## [0.3.4] - 2019.09.26
+
+* update dependencies
+
+## [0.3.5] - 2019.09.26
+
+* update common device

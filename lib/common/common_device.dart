@@ -86,4 +86,38 @@ class CommonDevice{
     return iosInfo.model + "_" + iosInfo.systemVersion + "_" + iosInfo.identifierForVendor;
   }
 
+  static Future<String> getLanIp() async{
+    String lanIp = '';
+    for (var interface in await NetworkInterface.list()) {
+      if("en0" == interface.name) {
+        for (var address in interface.addresses) {
+          if(address.type == InternetAddressType.IPv4){
+            lanIp = address.address;
+          }
+        }
+      }
+    }
+    return lanIp;
+  }
+
+  static Future<bool> compareIp(String localIp, String remoteHost) async{
+    if(localIp != null && localIp.length > 0){
+      List<String> localeS = localIp.split(".");
+      List<String> hostS = remoteHost.split(".");
+      if(localeS.length != 4 || hostS.length != 4 || localeS.length != hostS.length){
+        return false;
+      }
+      if(localeS[0] != hostS[0]){
+        return false;
+      }
+      if(localeS[1] != hostS[1]){
+        return false;
+      }
+      if(localeS[2] != hostS[2]){
+        return false;
+      }
+    }
+    return true;
+  }
+
 }
