@@ -118,3 +118,7 @@
 ## [0.3.1] - 2019.09.24
 
 * add CommonNavigatorBar
+
+## [0.3.2] - 2019.09.24
+
+* update dependencies
