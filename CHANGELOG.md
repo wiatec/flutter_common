@@ -134,3 +134,7 @@
 ## [0.3.5] - 2019.09.26
 
 * update common device
+
+## [0.3.6] - 2019.09.30
+
+* update common web view
