@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 
 class CommonListMenuInfo extends Object{
 
@@ -20,6 +21,8 @@ class CommonListMenuInfo extends Object{
   bool showRightArrow;
   int action;
   Function onItemTap;
+  Function onEdit;
+  Function onDelete;
 
 
   CommonListMenuInfo({
@@ -41,6 +44,8 @@ class CommonListMenuInfo extends Object{
     this.showRightArrow = true,
     this.action = 0,
     this.onItemTap,
+    this.onEdit,
+    this.onDelete,
   });
 
   @override
@@ -76,7 +81,7 @@ class CommonListMenu extends StatelessWidget {
   }
 
   Widget buildItem(CommonListMenuInfo info){
-    return Material(
+    Widget child =  Material(
       color: info.backgroundColor,
       child: InkWell(
         onTap: (){
@@ -98,6 +103,41 @@ class CommonListMenu extends StatelessWidget {
         ),
       ),
     );
+    List<IconSlideAction> actions = [];
+    if(info.onEdit != null){
+      actions.add(
+          IconSlideAction(
+              caption: 'Edit',
+              color: Colors.blue,
+              icon: Icons.edit,
+              onTap: () {
+                info.onEdit();
+              }
+          )
+      );
+    }
+    if(info.onDelete != null){
+      actions.add(
+          IconSlideAction(
+              caption: 'Delete',
+              color: Colors.red,
+              icon: Icons.delete,
+              onTap: () {
+                info.onDelete();
+              }
+          )
+      );
+    }
+    if(actions.length > 0){
+      return Slidable(
+        actionPane: SlidableDrawerActionPane(),
+        actionExtentRatio: 0.25,
+        child: child,
+        secondaryActions: actions,
+      );
+    }else {
+      return child;
+    }
   }
 
   List<Widget> buildWidgetList(CommonListMenuInfo info){

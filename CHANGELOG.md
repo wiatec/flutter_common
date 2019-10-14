@@ -138,3 +138,7 @@
 ## [0.3.6] - 2019.09.30
 
 * update common web view
+
+## [0.3.7] - 2019.10.12
+
+* update common list menu
