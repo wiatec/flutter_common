@@ -6,13 +6,21 @@ import 'package:flutter_common/common/common_aspect_ratio.dart';
 class CommonNetworkImageView extends StatelessWidget {
 
   final String url;
+  final String placeHolder;
+  final double width;
   final Function onPress;
   final CommonAspectRatio aspectRatio;
 
-  CommonNetworkImageView(this.url, {this.onPress, this.aspectRatio = CommonAspectRatio.sixteenNine});
+  CommonNetworkImageView(this.url, {
+    this.placeHolder,
+    this.width = double.infinity,
+    this.onPress,
+    this.aspectRatio = CommonAspectRatio.sixteenNine
+  });
 
   @override
   Widget build(BuildContext context) {
+    double height = width / aspectRatio.value;
     return GestureDetector(
       onTapUp: (detail){
         if(onPress != null){
@@ -20,16 +28,18 @@ class CommonNetworkImageView extends StatelessWidget {
         }
       },
       child: Container(
+        width: width,
+        height: height,
         child: AspectRatio(
           aspectRatio: aspectRatio.value,
           child: url == null || url.length <= 0?
-          PlaceHolderView():
-          CachedNetworkImage(
-            imageUrl: url,
-            placeholder: (context, url) => PlaceHolderView(),
-            errorWidget: (context, url, error) => PlaceHolderView(),
-            fit: BoxFit.cover,
-          ),
+          placeHolder == null || placeHolder.length <= 0? PlaceHolderView(width, height): Image.asset(placeHolder, width: width, height: height,):
+            CachedNetworkImage(
+              imageUrl: url,
+              placeholder: (context, url) => placeHolder == null || placeHolder.length <= 0? PlaceHolderView(width, height): Image.asset(placeHolder, width: width, height: height,),
+              errorWidget: (context, url, error) => placeHolder == null || placeHolder.length <= 0? PlaceHolderView(width, height): Image.asset(placeHolder, width: width, height: height,),
+              fit: BoxFit.fill,
+            ),
         ),
       ),
     );
@@ -41,11 +51,17 @@ class CommonNetworkImageView extends StatelessWidget {
 
 class PlaceHolderView extends StatelessWidget {
 
+  final double width;
+  final double height;
+
+
+  PlaceHolderView(this.width, this.height);
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
-      height: double.infinity,
+      width: width,
+      height: height,
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: [

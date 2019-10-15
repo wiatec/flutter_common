@@ -142,3 +142,19 @@
 ## [0.3.7] - 2019.10.12
 
 * update common list menu
+
+## [0.3.8] - 2019.10.14
+
+* update dependencies 
+
+## [0.3.9] - 2019.10.15
+
+* update common network image view 
+
+## [0.4.0] - 2019.10.15
+
+* update common network image view 
+
+## [0.4.1] - 2019.10.15
+
+* update common network image view 
