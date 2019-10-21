@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_common/common/common_nav.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
 
@@ -7,11 +8,13 @@ class CommonWebView extends StatefulWidget {
   final String url;
   final Color appBarBackgroundColor;
   final Color iconColor;
+  final Color leadingIconColor;
   final Color titleColor;
   final Color progressColor;
 
   CommonWebView(this.url, {
     this.iconColor = Colors.black87,
+    this.leadingIconColor = Colors.black87,
     this.titleColor = Colors.black87,
     this.appBarBackgroundColor = Colors.white,
     this.progressColor = Colors.blue
@@ -57,6 +60,12 @@ class _CommonWebViewState extends State<CommonWebView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios, color: widget.leadingIconColor,),
+          onPressed: (){
+            pop(context);
+          },
+        ),
         backgroundColor: widget.appBarBackgroundColor,
         centerTitle: false,
         title: Text(_title, style: TextStyle(color: widget.titleColor),),

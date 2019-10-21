@@ -158,3 +158,19 @@
 ## [0.4.1] - 2019.10.15
 
 * update common network image view 
+
+## [0.4.2] - 2019.10.16
+
+* add common toast
+
+## [0.4.3] - 2019.10.16
+
+* update common toast
+
+## [0.4.4] - 2019.10.16
+
+* update common toast
+
+## [0.4.5] - 2019.10.16
+
+* update common web view
