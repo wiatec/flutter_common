@@ -7,11 +7,15 @@ class CommonSlideView extends StatelessWidget {
   final Widget child;
   final Function onEdit;
   final Function onDelete;
+  final String editText;
+  final String deleteText;
 
   CommonSlideView({
     @required this.child,
     this.onEdit,
     this.onDelete,
+    this.editText = 'Edit',
+    this.deleteText = 'Delete',
   });
 
   @override
@@ -20,7 +24,7 @@ class CommonSlideView extends StatelessWidget {
     if(onEdit != null){
       actions.add(
         IconSlideAction(
-            caption: 'Edit',
+            caption: editText,
             color: Colors.blue,
             icon: Icons.edit,
             onTap: () {
@@ -32,7 +36,7 @@ class CommonSlideView extends StatelessWidget {
     if(onDelete != null){
       actions.add(
           IconSlideAction(
-              caption: 'Delete',
+              caption: deleteText,
               color: Colors.red,
               icon: Icons.delete,
               onTap: () {
