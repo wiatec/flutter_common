@@ -178,3 +178,7 @@
 ## [0.4.6] - 2019.10.16
 
 * update common slide view
+
+## [0.4.7] - 2019.10.16
+
+* update common network image view
