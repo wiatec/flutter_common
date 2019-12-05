@@ -182,3 +182,15 @@
 ## [0.4.7] - 2019.10.16
 
 * update common network image view
+
+## [0.4.8] - 2019.12.05
+
+* add common network
+
+## [0.4.9] - 2019.12.05
+
+* update local translations
+
+## [0.5.0] - 2019.12.05
+
+* update dependencies
