@@ -194,3 +194,11 @@
 ## [0.5.0] - 2019.12.05
 
 * update dependencies
+
+## [0.5.1] - 2019.12.13
+
+* update dependencies
+
+## [0.5.2] - 2019.12.13
+
+* update dependencies
