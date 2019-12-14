@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:dio/dio.dart';
+import 'package:flutter_common/entities/up_file_info.dart';
 
 
 class Result<T>{
@@ -227,7 +228,11 @@ class CommonHttp {
 
   Future<Result> formUpload(String url, {Map<String, dynamic> formParams, Function onProgress}) async {
     try {
-      FormData formData = new FormData.fromMap(formParams);
+      FormData formData = FormData.fromMap(formParams);
+      if(formParams.containsKey("files")){
+        List<MapEntry<String, MultipartFile>> list = formParams['files'];
+        formData.files.addAll(list);
+      }
       Response response = await dio.post(url, data: formData, onSendProgress: onProgress);
       Result result = Result();
       result.code = response.data['code'];
