@@ -24,4 +24,14 @@ class CommonSystem{
     return MediaQuery.of(context).padding.top;
   }
 
+  /// get app bar height
+  static double appBarHeight() {
+    return kToolbarHeight;
+  }
+
+  /// get pixel ratio
+  static double pixelRatio(BuildContext context) {
+    return MediaQuery.of(context).devicePixelRatio;
+  }
+
 }
