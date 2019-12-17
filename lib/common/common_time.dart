@@ -80,6 +80,16 @@ class CommonTime{
     return time;
   }
 
+  static String secondsToMediaTime(int seconds){
+    int hour = seconds ~/ 3600;
+    int leftSeconds = seconds % 3600;
+    int minute = leftSeconds ~/ 60;
+    int second = leftSeconds % 60;
+    return "${hour < 10? '0$hour': '$hour'}:"
+        "${minute < 10? '0$minute': '$minute'}"
+        ":${second < 10? '0$second': '$second'}";
+  }
+
 
   /// compute different days between dateTime a and b
   static int diffDays(DateTime a, DateTime b, [bool ignoreTime = false]) {

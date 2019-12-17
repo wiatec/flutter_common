@@ -16,4 +16,8 @@ void main() {
     log('fsfs');
   });
 
+  test("common time", (){
+    log('${CommonTime.secondsToMediaTime(3920)}');
+  });
+
 }
