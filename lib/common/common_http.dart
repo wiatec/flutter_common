@@ -148,7 +148,16 @@ class CommonHttp {
     }
   }
 
-
+  Future<Response> formPostResponse(String url, {Map<String, dynamic> formParams, Map<String, String> headers}) async {
+    try {
+      FormData formData = new FormData.fromMap(formParams);
+      return await dio.post(url, data: formData, options: Options(headers: headers));
+    } on DioError catch (e) {
+      String msg = this.formatErrorMessage(e.type);
+      print(msg);
+      return null;
+    }
+  }
 
   Future<Result> put(String url, {jsonData, Options options, CancelToken cancelToken}) async {
     try {

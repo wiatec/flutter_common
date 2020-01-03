@@ -14,7 +14,7 @@ class CommonNetworkImageView extends StatelessWidget {
 
   CommonNetworkImageView(this.url, {
     this.placeHolder,
-    this.width = double.infinity,
+    this.width = 200,
     this.onPress,
     this.aspectRatio = CommonAspectRatio.sixteenNine,
     this.fit = BoxFit.cover
