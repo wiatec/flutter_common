@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'package:dio/adapter.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter_common/common/common_log.dart';
 import 'package:flutter_common/entities/up_file_info.dart';
 
 
@@ -33,7 +35,7 @@ class CommonHttp {
       receiveTimeout: 50000,
       headers: {
         "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/75.0.3770.100 Safari/537.36",
-      }
+      },
     );
     dio = new Dio(options);
 //    dio.interceptor.request.onSend = (Options options) async {
@@ -76,6 +78,7 @@ class CommonHttp {
       result.data = response.data['data'];
       return result;
     } on DioError catch (e) {
+      log(e);
       String msg = this.formatErrorMessage(e.type);
       Result result = Result();
       result.code = 510;
@@ -89,7 +92,7 @@ class CommonHttp {
     try {
       return await dio.get(url, queryParameters: params, options: options, cancelToken: cancelToken);
     } on DioError catch (e) {
-      print(e.toString());
+      log(e);
       String msg = this.formatErrorMessage(e.type);
       print(msg);
       return null;
@@ -107,6 +110,7 @@ class CommonHttp {
       result.data = response.data['data'];
       return result;
     } on DioError catch (e) {
+      log(e);
       String msg = this.formatErrorMessage(e.type);
       Result result = Result();
       result.code = 510;
@@ -121,6 +125,7 @@ class CommonHttp {
       return await dio.post(url,
           data: jsonData, options: options, cancelToken: cancelToken);
     } on DioError catch (e) {
+      log(e);
       String msg = this.formatErrorMessage(e.type);
       print(msg);
       return null;
@@ -139,7 +144,7 @@ class CommonHttp {
       result.data = response.data['data'];
       return result;
     } on DioError catch (e) {
-      print(e.toString());
+      log(e);
       String msg = this.formatErrorMessage(e.type);
       Result result = Result();
       result.code = 510;
@@ -153,6 +158,7 @@ class CommonHttp {
       FormData formData = new FormData.fromMap(formParams);
       return await dio.post(url, data: formData, options: Options(headers: headers));
     } on DioError catch (e) {
+      log(e);
       String msg = this.formatErrorMessage(e.type);
       print(msg);
       return null;
@@ -169,6 +175,7 @@ class CommonHttp {
       result.data = response.data['data'];
       return result;
     } on DioError catch (e) {
+      log(e);
       String msg = this.formatErrorMessage(e.type);
       Result result = Result();
       result.code = 510;
@@ -188,7 +195,7 @@ class CommonHttp {
       result.data = response.data['data'];
       return result;
     } on DioError catch (e) {
-      print(e.toString());
+      log(e);
       String msg = this.formatErrorMessage(e.type);
       Result result = Result();
       result.code = 510;
@@ -207,6 +214,7 @@ class CommonHttp {
       result.data = response.data['data'];
       return result;
     } on DioError catch (e) {
+      log(e);
       String msg = this.formatErrorMessage(e.type);
       Result result = Result();
       result.code = 510;
@@ -226,6 +234,7 @@ class CommonHttp {
       result.data = response.data['data'];
       return result;
     } on DioError catch (e) {
+      log(e);
       String msg = this.formatErrorMessage(e.type);
       Result result = Result();
       result.code = 510;
@@ -249,6 +258,7 @@ class CommonHttp {
       result.data = response.data['data'];
       return result;
     } on DioError catch (e) {
+      log(e);
       String msg = this.formatErrorMessage(e.type);
       Result result = Result();
       result.code = 510;

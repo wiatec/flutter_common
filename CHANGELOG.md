@@ -226,3 +226,7 @@
 ## [0.5.8] - 2020.01.03
 
 * update common http
+
+## [0.5.9] - 2020.01.07
+
+* update common http
