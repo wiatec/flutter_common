@@ -1,6 +1,6 @@
 name: flutter_common
 description: Flutter Common package.
-version: 0.5.9
+version: 0.5.10
 homepage: https://github.com/wiatec
 repository: https://github.com/wiatec/flutter_common
 
@@ -24,7 +24,7 @@ dependencies:
   share: ^0.6.3+4
   path_provider: ^1.4.5
   device_info: ^0.4.1+3
-  package_info: ^0.4.0+12
+  package_info: '>=0.4.0+12 <2.0.0'
   connectivity: ^0.4.5+7
   json_annotation: ^3.0.0
   shared_preferences: ^0.5.4+8
