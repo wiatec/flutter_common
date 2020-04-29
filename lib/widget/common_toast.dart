@@ -15,7 +15,7 @@ class CommonToast{
         msg: msg,
         toastLength: toastLength,
         gravity: gravity,
-        timeInSecForIos: time,
+        timeInSecForIosWeb: time,
         backgroundColor: backgroundColor,
         textColor: textColor,
         fontSize: fontSize

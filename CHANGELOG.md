@@ -230,3 +230,7 @@
 ## [0.5.9] - 2020.01.07
 
 * update common http
+
+## [0.6.0] - 2020.04.29
+
+* update dependencies
