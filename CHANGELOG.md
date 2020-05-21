@@ -234,3 +234,7 @@
 ## [0.6.0] - 2020.04.29
 
 * update dependencies
+
+## [0.6.1] - 2020.05.08
+
+* update common navigator

@@ -8,8 +8,8 @@ Future<dynamic> push(BuildContext context, Widget widget) {
 }
 
 
-bool pop<T extends Object> (BuildContext context, [T result]) {
-  return Navigator.of(context).pop(result);
+void pop<T extends Object> (BuildContext context, [T result]) {
+  Navigator.of(context).pop(result);
 }
 
 
