@@ -134,10 +134,10 @@ class CommonHttp {
 
 
 
-  Future<Result> formPost(String url, {Map<String, dynamic> formParams}) async {
+  Future<Result> formPost(String url, {Map<String, dynamic> formParams, CancelToken cancelToken}) async {
     try {
       FormData formData = new FormData.fromMap(formParams);
-      Response response = await dio.post(url, data: formData);
+      Response response = await dio.post(url, data: formData, cancelToken: cancelToken);
       Result result = Result();
       result.code = response.data['code'];
       result.msg = response.data['msg'];
@@ -153,10 +153,10 @@ class CommonHttp {
     }
   }
 
-  Future<Response> formPostResponse(String url, {Map<String, dynamic> formParams, Map<String, String> headers}) async {
+  Future<Response> formPostResponse(String url, {Map<String, dynamic> formParams, Map<String, String> headers, CancelToken cancelToken}) async {
     try {
       FormData formData = new FormData.fromMap(formParams);
-      return await dio.post(url, data: formData, options: Options(headers: headers));
+      return await dio.post(url, data: formData, options: Options(headers: headers), cancelToken: cancelToken);
     } on DioError catch (e) {
       log(e);
       String msg = this.formatErrorMessage(e.type);
@@ -185,10 +185,10 @@ class CommonHttp {
   }
 
 
-  Future<Result> formPut(String url, {Map<String, dynamic> formParams}) async {
+  Future<Result> formPut(String url, {Map<String, dynamic> formParams, CancelToken cancelToken}) async {
     try {
       FormData formData = new FormData.fromMap(formParams);
-      Response response = await dio.put(url, data: formData);
+      Response response = await dio.put(url, data: formData, cancelToken: cancelToken);
       Result result = Result();
       result.code = response.data['code'];
       result.msg = response.data['msg'];
@@ -224,10 +224,10 @@ class CommonHttp {
   }
 
 
-  Future<Result> formDelete(String url, {Map<String, dynamic> formParams}) async {
+  Future<Result> formDelete(String url, {Map<String, dynamic> formParams, CancelToken cancelToken}) async {
     try {
       FormData formData = new FormData.fromMap(formParams);
-      Response response = await dio.delete(url, data: formData);
+      Response response = await dio.delete(url, data: formData, cancelToken: cancelToken);
       Result result = Result();
       result.code = response.data['code'];
       result.msg = response.data['msg'];
@@ -244,14 +244,14 @@ class CommonHttp {
   }
 
 
-  Future<Result> formUpload(String url, {Map<String, dynamic> formParams, Function onProgress}) async {
+  Future<Result> formUpload(String url, {Map<String, dynamic> formParams, Function onProgress, CancelToken cancelToken}) async {
     try {
       FormData formData = FormData.fromMap(formParams);
       if(formParams.containsKey("files")){
         List<MapEntry<String, MultipartFile>> list = formParams['files'];
         formData.files.addAll(list);
       }
-      Response response = await dio.post(url, data: formData, onSendProgress: onProgress);
+      Response response = await dio.post(url, data: formData, onSendProgress: onProgress, cancelToken: cancelToken);
       Result result = Result();
       result.code = response.data['code'];
       result.msg = response.data['msg'];
@@ -285,7 +285,9 @@ class CommonHttp {
       case DioErrorType.RECEIVE_TIMEOUT:
         return "Connect timeout";
       case DioErrorType.RESPONSE:
-        return "Server reponse failure";
+        return "Server response failure";
+      case DioErrorType.CANCEL:
+        return "User cancel";
       default:
         return "";
     }

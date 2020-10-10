@@ -19,7 +19,7 @@ class Translations {
   }
 
   String text(String key) {
-    return _localizedValues[key] ?? '** $key not found';
+    return _localizedValues[key] ?? '$key';
   }
 
   static Future<Translations> load(BuildContext context, Locale locale) async {
