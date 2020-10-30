@@ -13,6 +13,7 @@ export 'common/common_log.dart';
 export 'common/common_nav.dart';
 export 'common/common_network.dart';
 export 'common/common_sp.dart';
+export 'common/common_string.dart';
 export 'common/common_system.dart';
 export 'common/common_time.dart';
 

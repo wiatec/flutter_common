@@ -65,14 +65,15 @@ class PlaceHolderView extends StatelessWidget {
       width: width,
       height: height,
       decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            Colors.black26,
-            Colors.black54,
-          ],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        )
+        color: Colors.black54,
+        // gradient: LinearGradient(
+        //   colors: [
+        //     Colors.black26,
+        //     Colors.black54,
+        //   ],
+        //   begin: Alignment.topLeft,
+        //   end: Alignment.bottomRight,
+        // )
       ),
     );
   }
