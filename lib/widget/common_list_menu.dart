@@ -29,11 +29,11 @@ class CommonListMenuInfo extends Object{
     this.backgroundColor = Colors.transparent,
     this.label,
     this.labelColor = Colors.black87,
-    this.labelSize = 14.0,
+    this.labelSize = 15.0,
     this.labelFontWeight = FontWeight.w500,
     this.subTitle,
     this.subTitleColor = Colors.black38,
-    this.subTitleSize = 10.0,
+    this.subTitleSize = 12.0,
     this.iconRes,
     this.icon,
     this.rightWidget,
@@ -93,7 +93,6 @@ class CommonListMenu extends StatelessWidget {
         splashColor: splashColor,
         child: Container(
           width: double.infinity,
-          height: 55.0,
           color: Colors.transparent,
           padding: EdgeInsets.only(left: 8.0, right: 8.0, bottom: 10.0, top: 15.0),
           child:Row(
