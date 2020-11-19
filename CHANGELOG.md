@@ -238,3 +238,8 @@
 ## [0.6.1] - 2020.05.08
 
 * update common navigator
+
+## [0.7.0] - 2020.11.19
+
+* update dependencies
+* add common string
