@@ -94,11 +94,11 @@ class BottomMenu extends StatelessWidget {
   Widget buildListItem(BuildContext context, CommonBottomMenuItem item){
     return GestureDetector(
       onTapUp: (details){
-        if(item.onItemClick != null){
-          item.onItemClick();
-        }
         if(item.closeMenuAfterTap){
           Navigator.pop(context);
+        }
+        if(item.onItemClick != null){
+          item.onItemClick();
         }
       },
       child: Container(

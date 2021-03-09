@@ -8,7 +8,7 @@ class CommonBottomModal{
       return new Container(
           color: Colors.black87,
           child: new Padding(
-            padding: const EdgeInsets.only(left: 12.0, right: 12.0, top: 12.0, bottom: 12.0),
+            padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 12.0, bottom: 32.0),
             child: new Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
@@ -37,7 +37,7 @@ class CommonBottomModal{
       return new Container(
           color: Colors.black87,
           child: new Padding(
-            padding: const EdgeInsets.only(left: 12.0, right: 12.0,  top: 12.0, bottom: 12.0),
+            padding: const EdgeInsets.only(left: 20.0, right: 20.0,  top: 12.0, bottom: 32.0),
             child: new Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
@@ -67,7 +67,7 @@ class CommonBottomModal{
       return new Container(
           color: Colors.black87,
           child: new Padding(
-            padding: const EdgeInsets.only(left: 12.0, right: 12.0, top:12.0, bottom: 12.0),
+            padding: const EdgeInsets.only(left: 20.0, right: 20.0, top:12.0, bottom: 32.0),
             child: new Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: <Widget>[
