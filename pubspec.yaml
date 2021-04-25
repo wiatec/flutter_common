@@ -19,7 +19,7 @@ dependencies:
   encrypt: ^4.1.0
   crypto: ^2.1.5
   screen: ^0.0.5
-  provide: ^1.0.2
+  redux: ^5.0.0
   path: ^1.6.4
   share: ^0.6.4
   path_provider: ^1.6.18
@@ -30,7 +30,7 @@ dependencies:
   shared_preferences: ^0.5.7
   url_launcher: ^5.4.5
   rxdart: ^0.25.0
-  local_auth: ^0.6.3
+  local_auth: ^1.1.5
   logger: ^0.9.1
   sqflite: ^1.1.7+2
 

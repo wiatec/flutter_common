@@ -35,7 +35,7 @@ export 'widget/common_navigator_bar.dart';
 export 'locale/translations.dart';
 
 export 'common_constant.dart';
-export 'package:provide/provide.dart';
+export 'package:redux/redux.dart';
 export 'package:dio/dio.dart';
 export 'package:rxdart/rxdart.dart';
 export 'package:logger/logger.dart';
