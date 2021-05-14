@@ -22,6 +22,7 @@ export 'widget/common_bottom_menu.dart';
 export 'widget/common_bottom_modal.dart';
 export 'widget/common_dialog.dart';
 export 'widget/common_file_selector.dart';
+export 'widget/common_header.dart';
 export 'widget/common_list_filter.dart';
 export 'widget/common_list_menu.dart';
 export 'widget/common_load_more_view.dart';
