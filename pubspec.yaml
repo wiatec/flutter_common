@@ -15,7 +15,7 @@ dependencies:
 
   cupertino_icons: ^1.0.0
 
-  dio: ^3.0.10
+  dio: ">=3.0.10 <6.0.0"
   encrypt: ^4.1.0
   crypto: ^2.1.5
   screen: ^0.0.5
